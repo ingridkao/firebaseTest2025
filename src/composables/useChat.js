@@ -51,6 +51,7 @@ export function useChat(uidRef) {
   const send = async (text) => {
     const t = (text || '').trim()
     if (!t) return
+    // 可以加入輸入驗證
     await addDoc(col, {
       text: t,
       createdAt: serverTimestamp(),
