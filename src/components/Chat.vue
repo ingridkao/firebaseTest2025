@@ -1,10 +1,13 @@
 <script setup>
 import { ref} from 'vue'
+// 調用寫好的邏輯
 import { useChat } from '@/composables/useChat'
-const { messages, send, loadMore, loadingMore, boxRef } = useChat('ingrid')
-const input = ref('')
+const { messages, boxRef, send} = useChat('ingrid')
+
+// 登入的uid目前還沒有寫好登入所以先寫死
 const myUidRef = ref('ingrid')
 
+const input = ref('')
 const onSend = async () => {
   await send(input.value)
   input.value = ''

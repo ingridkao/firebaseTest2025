@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 /*
+// 測試firebase是否連線
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 const testFirestore = async () => {
