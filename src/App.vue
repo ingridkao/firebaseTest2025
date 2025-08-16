@@ -23,7 +23,8 @@ testFirestore()
     <h1>🔥 Firestore Chat (Vue 3)</h1>
     <nav>
       <RouterLink to="/">Home</RouterLink><br/>
-      <RouterLink to="/chat">Chat</RouterLink>
+      <RouterLink to="/chat">Chat</RouterLink><br/>
+      <RouterLink to="/login">Login</RouterLink>
     </nav>
     <RouterView />
   </main>
