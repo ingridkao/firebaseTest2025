@@ -1,33 +1,42 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-/*
-// 測試firebase是否連線
-import { collection, getDocs } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
-const testFirestore = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, 'messages'))
-    querySnapshot.forEach(doc => {
-      console.log(`${doc.id} =>`, doc.data())
-    })
-  } catch (error) {
-    console.error(error);
-  }
-}
-testFirestore()
-*/
 </script>
 
 <template>
-  <main>
-    <h1>🔥 Firestore Chat (Vue 3)</h1>
+  <header>
+    <RouterLink to="/">🔥 Firestore Chat</RouterLink>
     <nav>
-      <RouterLink to="/">Home</RouterLink><br/>
-      <RouterLink to="/chat">Chat</RouterLink><br/>
-      <RouterLink to="/login">Login</RouterLink>
+      <RouterLink to="/chat">聊天室</RouterLink>
+      <RouterLink to="/login">登入</RouterLink>
     </nav>
+  </header>
+  <main>
     <RouterView />
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+header{
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  >nav{
+    display: inline-flex;
+    gap: 1rem;
+  }
+}
+main{
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  font-size: 1.5rem;
+  color: #666;
+  text-decoration: none;
+}
+</style>
