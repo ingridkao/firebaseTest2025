@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useAuthStore } from '@/stores/authStore'
+const authStore = useAuthStore()
 </script>
 
 <template>
@@ -7,7 +9,13 @@ import { RouterLink, RouterView } from 'vue-router'
     <RouterLink to="/">🔥 Firestore Chat</RouterLink>
     <nav>
       <RouterLink to="/chat">聊天室</RouterLink>
-      <RouterLink to="/login">登入</RouterLink>
+      <div v-if="authStore.user">
+        <p>Hi, {{ authStore.user.displayName }}</p>
+        <button @click="authStore.logout">
+          登出
+        </button>
+      </div>
+      <RouterLink v-else to="/login">登入</RouterLink>
     </nav>
   </header>
   <main>
